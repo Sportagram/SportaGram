@@ -1,0 +1,30 @@
+.chat-list {
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.chat-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chat-message {
+    margin-bottom: 5px;
+}
+
+.chat-time {
+    font-size: 0.8em;
+    color: #888;
+}

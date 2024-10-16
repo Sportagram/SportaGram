@@ -1,0 +1,17 @@
+.dashboard {
+    padding: 20px;
+}
+
+.chart-container {
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.player-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.small-chart {
+    width: 30%;
+}

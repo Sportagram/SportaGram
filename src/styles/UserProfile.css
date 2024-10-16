@@ -1,0 +1,27 @@
+.user-profile {
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-profile h4 {
+    margin-bottom: 10px;
+}
+
+.user-profile button {
+    background-color: #2f3640;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
