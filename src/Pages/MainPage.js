@@ -9,6 +9,7 @@ import PlayerCard from '../components/PlayerCard';
 import '../styles/App.css';
 import '../styles/PlayerCard.css';
 
+// 로그인 시 사용자의 메인 페이지
 function MainPage() {
     return (
         <div className="app-container">
