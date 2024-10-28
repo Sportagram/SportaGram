@@ -2,13 +2,14 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import config from "./apikey.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBpVtuD4XJkO-TSye6UtzKF94GI3moUucA",
+    apiKey: config.apiKey,
     authDomain: "nweeter-myproject.firebaseapp.com",
     projectId: "nweeter-myproject",
     storageBucket: "nweeter-myproject.appspot.com",
