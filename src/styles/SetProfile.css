@@ -54,3 +54,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.setprofile-content h2 {
+    font-family: 'RixXladywatermelonR', sans-serif;
+}

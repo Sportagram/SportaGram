@@ -16,13 +16,30 @@ function LoginPage() {
             .catch((err) => console.log(err));
     };
 
+    const buttonStyle = {
+        background: `url(${process.env.PUBLIC_URL}/google.png) no-repeat`,
+        backgroundSize: '20px 20px',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        itemAlign: 'center',
+        width: '28px',
+        height: '14px',
+    };
+
     return (
         <div className="login-page-container">
             <Sidebar />
             <div className="login-content">
                 <h2>스포타그램에 오신 선수님, 환영해요!</h2>
                 <div className="google-login-button">
-                    <button onClick={handleGoogleSign}>Login in Google</button>
+                    <div className="button-basic-wrapper">
+                        <div className="button-icon-wrap" style={buttonStyle}>
+                            <span className="buttoniconimage"></span>
+                        </div>
+                        <div className="button-contents">
+                            <span className="button-text" onClick={handleGoogleSign}>Playball With Google!</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

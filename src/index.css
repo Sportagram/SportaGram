@@ -4,6 +4,14 @@
   font-weight: normal;
   font-style: normal;
 }
+* {
+  font-family: 'RixXladywatermelonR', sans-serif;
+}
+
+h2 {
+  font-family: 'RixXladywatermelonR', sans-serif !important;
+}
+
 body {
   margin: 0;
   font-family: 'RixXladywatermelonR', sans-serif;
