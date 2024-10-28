@@ -9,9 +9,9 @@ function Sidebar() {
             <div className="sidebar-logo">
                 <img
                     alt="logo"
-                    // className="sidebar-logo"
+                    className="responsive-logo"
                     src={`${process.env.PUBLIC_URL}/logo1.png`}
-                    onClick={() => window.location.href = '/'}
+                    onClick={() => window.location.href = '/main'}
                 />
             </div>
 
@@ -19,7 +19,7 @@ function Sidebar() {
                 <ul>
                     <div className="user-section">
                         <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/user.png`} alt="user" className="user-icon"/>
-                        <li className="user-link"><Link to="/login_page">마이페이지</Link></li>
+                        <li className="user-link"><Link to="/mypage">마이페이지</Link></li>
                     </div>
                     <div className="user-section">
                         <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/community.png`} alt="user"
@@ -28,7 +28,7 @@ function Sidebar() {
                     </div>
                     <div className="user-section">
                         <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/diary.png`} alt="user" className="user-icon"/>
-                        <li className="user-link"><Link to="/record">나의 직관 일기</Link></li>
+                        <li className="user-link"><Link to="/diary">나의 직관 일기</Link></li>
                     </div>
                     <div className="user-section">
                         <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/rate.png`} alt="user" className="user-icon"/>

@@ -1,5 +1,7 @@
 .sidebar {
-    width: 300px;
+    width: 20vw; /* 창의 너비에 비례하여 사이드바 크기 설정 */
+    max-width: 300px; /* 최대 너비 제한 */
+    min-width: 200px; /* 최소 너비 제한 */
     background-color: #6B6F87;
     color: white;
     padding: 20px;
@@ -7,8 +9,19 @@
     overflow-y: auto;
 }
 
-.sidebar-logo{
-    padding-left: -20px;
+.sidebar-logo {
+    position: relative;
+    width: 100%;
+    padding-top: 25%;
+}
+
+.responsive-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 원본 비율 유지 */
 }
 
 .sidebar h2 {

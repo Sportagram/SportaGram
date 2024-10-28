@@ -1,15 +1,29 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../styles/App.css';
-import '../styles/PlayerCard.css';
+import '../styles/LoginPage.css';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../firebase';
 
-// 사용자가 최초로 접하는 로그인 페이지
 function LoginPage() {
+    const handleGoogleSign = async () => {
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider)
+            .then((data) => {
+                localStorage.setItem('userEmail', data.user.email);
+                console.log(data);
+                window.location.href = '/fanselect'; // 로그인 성공 시 팀 선택 페이지로 이동
+            })
+            .catch((err) => console.log(err));
+    };
+
     return (
-        <div className="app-container">
+        <div className="login-page-container">
             <Sidebar />
-            <div>
-                <p> 로그인 페이지 </p>
+            <div className="login-content">
+                <h2>스포타그램에 오신 선수님, 환영해요!</h2>
+                <div className="google-login-button">
+                    <button onClick={handleGoogleSign}>Login in Google</button>
+                </div>
             </div>
         </div>
     );
