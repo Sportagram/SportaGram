@@ -17,14 +17,16 @@ function LoginPage() {
     };
 
     const buttonStyle = {
-        background: `url(${process.env.PUBLIC_URL}/google.png) no-repeat`,
-        backgroundSize: '20px 20px',
+        background: `url(${process.env.PUBLIC_URL}/google1.png) no-repeat`,
+        backgroundSize: '30px 30px',
         display: 'inline-block',
         verticalAlign: 'middle',
-        itemAlign: 'center',
-        width: '28px',
-        height: '14px',
+        width: '13px',
+        height: '30px',
     };
+    const buttonContentStyle = {
+        paddingLeft: '30px',
+    }
 
     return (
         <div className="login-page-container">
@@ -32,14 +34,10 @@ function LoginPage() {
             <div className="login-content">
                 <h2>스포타그램에 오신 선수님, 환영해요!</h2>
                 <div className="google-login-button">
-                    <div className="button-basic-wrapper">
-                        <div className="button-icon-wrap" style={buttonStyle}>
-                            <span className="buttoniconimage"></span>
-                        </div>
-                        <div className="button-contents">
-                            <span className="button-text" onClick={handleGoogleSign}>Playball With Google!</span>
-                        </div>
-                    </div>
+                    <button className="button-basic-wrapper" onClick={handleGoogleSign}>
+                        <span className="button-icon-wrap" style={buttonStyle}></span>
+                        <span className="button-contents" style={buttonContentStyle}>Playball with Google</span>
+                    </button>
                 </div>
             </div>
         </div>

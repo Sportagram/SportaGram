@@ -21,7 +21,6 @@ function AppRouter() {
                 <Route path="/diary" element={<LoginPage />} />
                 <Route path="/rate" element={<LoginPage />} />
                 <Route path="/compatibility" element={<LoginPage />} />
-                <Route path="/setting" element={<LoginPage />} />
                 {/* 다른 RoutePath를 여기에 추가 */}
             </Routes>
         </Router>

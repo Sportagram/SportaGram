@@ -5,7 +5,7 @@
     background-color: #6B6F87;
     color: white;
     padding: 20px;
-    height: 100vh;
+    height: auto;
     overflow-y: auto;
 }
 

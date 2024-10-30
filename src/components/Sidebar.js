@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import '../styles/Sidebar.css';
 
 // 로그인 이후 모든 페이지에서 사용되는 사이드바
 function Sidebar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const auth = getAuth();
@@ -18,6 +19,8 @@ function Sidebar() {
         });
     }, []);
 
+    const shouldShowNav = isLoggedIn && !['/', '/fanselect', '/setprofile', '/configure'].includes(location.pathname);  // 임의로 해당 path에서는 사이드바 nav를 표시하지 않도록 함.
+
     return (
         <div className="sidebar">
             <div className="sidebar-logo">
@@ -29,7 +32,7 @@ function Sidebar() {
                 />
             </div>
 
-            {isLoggedIn && (
+            {shouldShowNav && (
                 <nav>
                     <ul>
                         <div className="user-section">
@@ -53,10 +56,10 @@ function Sidebar() {
                             <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/relationship.png`} alt="user" className="user-icon"/>
                             <li className="user-link"><Link to="/compatibility">선수 궁합도</Link></li>
                         </div>
-                        <div className="user-section">
-                            <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/setting.png`} alt="setting" className="user-icon"/>
-                            <li className="user-link"><Link to="/setting">설정</Link></li>
-                        </div>
+                        {/*<div className="user-section">*/}
+                        {/*    <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/setting.png`} alt="setting" className="user-icon"/>*/}
+                        {/*    <li className="user-link"><Link to="/setting">설정</Link></li>*/}
+                        {/*</div>    //setting은 mypage에 합쳐짐*/}
                     </ul>
                 </nav>
             )}

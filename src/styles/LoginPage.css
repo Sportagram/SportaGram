@@ -53,8 +53,6 @@ h2 {
     left:0;
     right: 0;
     bottom: 0;
-    border: 1px solid #aaa;
-    border-radius: 4px;
 }
 .button-basic-wrapper:hover {
     background: #f0f0f0;
@@ -67,8 +65,9 @@ h2 {
 }
 .button-basic-wrapper .button-icon-wrap {
     height: 44px;
+    width: 44px;
     line-height: 44px;
-    padding: 0 6px 0 10px;
+    padding: 0 10px 0 15px;
     border-right: 1px solid #aaa;
     background-color: #fff;
     border-top-left-radius: 4px;
