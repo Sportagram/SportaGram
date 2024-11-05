@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 import '../styles/UserProfile.css';
 
 function UserProfile() {
+    const [nickname, setNickname] = useState('');
+
     useEffect(() => {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
@@ -12,7 +14,12 @@ function UserProfile() {
                 console.log('No user is logged in');
             }
         });
+        const storedNickname = localStorage.getItem('nickname');
+        if (storedNickname) {
+            setNickname(storedNickname);
+        }
     }, []);
+
     const handleLogout = () => {
         const auth = getAuth();
         signOut(auth)
@@ -28,7 +35,7 @@ function UserProfile() {
     return (
         <div className="user-profile">
             <img src="/logo192.png" alt="프로필" className="profile-image" />
-            <h4>My NickName</h4>
+            <h4>{nickname || 'My NickName'} 선수</h4>
             <button onClick={handleLogout}>로그아웃</button>
         </div>
     );

@@ -5,7 +5,7 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {auth} from "../firebase";
 
-function LoginPage() {
+function gungHab() {
     const handleGoogleSign = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider).then((data) => {
@@ -28,4 +28,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default gungHab;

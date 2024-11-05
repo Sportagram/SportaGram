@@ -5,6 +5,11 @@ import LoginPage from "./Login/LoginPage";
 import FanSelect from "./Pages/FanSelect";
 import Configure from "./Pages/Configure";
 import SetProfile from "./Pages/SetProfile";
+import MyPage from "./Pages/MyPage";
+import Community from "./Pages/Community";
+import MyDiary from "./Pages/MyDiary";
+import MyWinRate from "./Pages/MyWinRate";
+import Gunghab from "./Pages/Gunghab";
 
 // 페이지 라우터 컴포넌트
 function AppRouter() {
@@ -16,11 +21,11 @@ function AppRouter() {
                 <Route path="/setprofile" element={<SetProfile />} />
                 <Route path="/configure" element={<Configure />} />
                 <Route path="/main" element={<MainPage />} />
-                <Route path="/mypage" element={<LoginPage />} />
-                <Route path="/community" element={<LoginPage />} />
-                <Route path="/diary" element={<LoginPage />} />
-                <Route path="/rate" element={<LoginPage />} />
-                <Route path="/compatibility" element={<LoginPage />} />
+                <Route path="/mypage" element={<MyPage />} />
+                <Route path="/community" element={<Community />} />
+                <Route path="/diary" element={<MyDiary />} />
+                <Route path="/rate" element={<MyWinRate />} />
+                <Route path="/compatibility" element={<Gunghab />} />
                 {/* 다른 RoutePath를 여기에 추가 */}
             </Routes>
         </Router>
