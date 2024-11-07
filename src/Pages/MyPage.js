@@ -85,7 +85,10 @@ function MyPage() {
         <div className={`mypage-container ${darkMode ? 'dark-mode' : ''}`}>
             <Sidebar />
             <div className="mypage-content">
-                <h2>마이페이지</h2>
+                <div className="page-header">
+                    <h2>마이페이지</h2>
+                    <p>선수님의 정보를 확인하고 수정할 수 있어요.</p>
+                </div>
                 <div className="profile-settings">
                     <div className="setting-item">
                         <label>선호 팀 설정</label>

@@ -6,7 +6,7 @@ import ChatList from '../components/ChatList';
 import ArticleList from '../components/ArticleList';
 import UserProfile from '../components/UserProfile';
 import PlayerCard from '../components/PlayerCard';
-import '../styles/App.css';
+import '../styles/MainPage.css';
 import '../styles/PlayerCard.css';
 
 // 로그인 시 사용자의 메인 페이지

@@ -4,6 +4,7 @@ import '../styles/UserProfile.css';
 
 function UserProfile() {
     const [nickname, setNickname] = useState('');
+    const [profileImage, setProfileImage] = useState('');
 
     useEffect(() => {
         const auth = getAuth();
@@ -17,6 +18,10 @@ function UserProfile() {
         const storedNickname = localStorage.getItem('nickname');
         if (storedNickname) {
             setNickname(storedNickname);
+        }
+        const storedProfileImage = localStorage.getItem('profileImage');
+        if (storedProfileImage) {
+            setProfileImage(storedProfileImage);
         }
     }, []);
 
@@ -34,7 +39,7 @@ function UserProfile() {
 
     return (
         <div className="user-profile">
-            <img src="/logo192.png" alt="프로필" className="profile-image" />
+            <img src={profileImage || '/logo192.png'} alt="프로필" className="profile-image" />
             <h4>{nickname || 'My NickName'} 선수</h4>
             <button onClick={handleLogout}>로그아웃</button>
         </div>

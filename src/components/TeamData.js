@@ -2,7 +2,7 @@ export const teamData = [
     {
         id: 1,
         name: '두산 베어스',
-        image: 'doosan.png'
+        image: 'nc_locker.png'
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ export const teamData = [
     {
         id: 7,
         name: 'NC 다이노스',
-        image: 'nc.png'
+        image: 'nc_locker.png'
     },
     {
         id: 8,
