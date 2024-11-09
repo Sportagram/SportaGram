@@ -1,10 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { teamData } from "./TeamData";
 
-function TeamSlider({ handleTeamSelect }) {
-    const [slideIndex, setSlideIndex] = useState(1);
-
+function TeamSlider({ slideIndex, setSlideIndex }) {
     const previousSlide = () => {
         if (slideIndex !== 1) {
             setSlideIndex((prev) => prev - 1);
@@ -25,7 +22,7 @@ function TeamSlider({ handleTeamSelect }) {
         setSlideIndex(index);
     };
 
-    return(
+    return (
         <Container>
             <Arrow direction="prev" onClick={previousSlide}>이전</Arrow>
             {teamData.map((team) => (
@@ -50,8 +47,10 @@ function TeamSlider({ handleTeamSelect }) {
         </Container>
     );
 }
+
 export default TeamSlider;
 
+// 스타일 컴포넌트 정의
 const Container = styled.div`
     width: 1000px;
     height: 300px;

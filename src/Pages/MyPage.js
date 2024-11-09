@@ -95,7 +95,7 @@ function MyPage() {
                         <select value={team} onChange={handleTeamChange}>
                             <option value="">팀을 선택하세요</option>
                             {teamData.map((team) => (
-                                <option key={team.id} value={team.name}>{team.name}</option>
+                                <option key={team.id} value={team.teamCall}>{team.name}</option>
                             ))}
                         </select>
                     </div>
