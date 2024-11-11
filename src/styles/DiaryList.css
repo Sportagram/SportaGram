@@ -1,0 +1,109 @@
+.diarylist-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.diarylist-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5vw;
+    position: relative;
+}
+
+.page-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    margin: 20px;
+    width: 300px;
+}
+
+.diary-list-wrapper {
+    width: 100%;
+    max-width: 80vw;
+    height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-top: 5vw;
+    padding: 1vw;
+}
+
+.diary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1.5vw;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.diary-item:hover {
+    background-color: #f0f0f0;
+}
+
+.diary-img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2vw;
+}
+
+.diary-info {
+    flex-grow: 1;
+}
+
+.diary-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.diary-info p {
+    margin: 0.5vw 0 0;
+    color: #777;
+}
+
+.diary-date {
+    font-size: 0.9em;
+    color: #999;
+    background-color: #e6e6e6;
+    padding: 0.5vw 1vw;
+    border-radius: 8px;
+}
+
+.delete-button {
+    padding: 0.5vw 1vw;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1vw;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.write-button {
+    padding: 1vw 2vw;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 2vw;
+}

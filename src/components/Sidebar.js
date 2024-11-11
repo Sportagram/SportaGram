@@ -46,7 +46,7 @@ function Sidebar() {
                         </div>
                         <div className="user-section">
                             <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/diary.png`} alt="user" className="user-icon"/>
-                            <li className="user-link"><Link to="/diary">나의 직관 일기</Link></li>
+                            <li className="user-link"><Link to="/diarylist">나의 직관 일기</Link></li>
                         </div>
                         <div className="user-section">
                             <img src={`${process.env.PUBLIC_URL}/sidebar_Icon/rate.png`} alt="user" className="user-icon"/>

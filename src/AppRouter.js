@@ -7,9 +7,12 @@ import Configure from "./Pages/Configure";
 import SetProfile from "./Pages/SetProfile";
 import MyPage from "./Pages/MyPage";
 import Community from "./Pages/Community";
-import MyDiary from "./Pages/MyDiary";
+import MyDiary from "./Pages/DiaryWrite";
 import MyWinRate from "./Pages/MyWinRate";
 import Gunghab from "./Pages/Gunghab";
+import DiaryList from "./Pages/DiaryList";
+import DiaryWrite from "./Pages/DiaryWrite";
+import DiaryDetail from "./Pages/DiaryDetail";
 
 // 페이지 라우터 컴포넌트
 function AppRouter() {
@@ -23,7 +26,9 @@ function AppRouter() {
                 <Route path="/main" element={<MainPage />} />
                 <Route path="/mypage" element={<MyPage />} />
                 <Route path="/community" element={<Community />} />
-                <Route path="/diary" element={<MyDiary />} />
+                <Route path="/diarylist" element={<DiaryList />} />
+                <Route path="/diarydetail/:id" element={<DiaryDetail />} />
+                <Route path="/diarywrite" element={<DiaryWrite />} />
                 <Route path="/rate" element={<MyWinRate />} />
                 <Route path="/compatibility" element={<Gunghab />} />
                 {/* 다른 RoutePath를 여기에 추가 */}
