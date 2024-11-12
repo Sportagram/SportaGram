@@ -3,6 +3,19 @@ import Sidebar from '../components/Sidebar';
 import '../styles/DiaryWrite.css';
 import { useNavigate } from 'react-router-dom';
 
+const stadiumOptions = [
+    '광주기아챔피언스필드',
+    '잠실야구장',
+    '고척스카이돔',
+    '대구삼성라이온즈파크',
+    '문학야구장',
+    '마산야구장',
+    '수원kt위즈파크',
+    '청주야구장',
+    '포항야구장',
+    '이글스파크'
+];
+
 function DiaryWrite() {
     const [gameName, setGameName] = useState('');
     const [gameDate, setGameDate] = useState('');
@@ -11,20 +24,9 @@ function DiaryWrite() {
     const [dailyMVP, setDailyMVP] = useState('');
     const [review, setReview] = useState('');
     const [image, setImage] = useState(null);
-    const navigate = useNavigate();
+    const [win, setWin] = useState(''); // 승/무/패 상태 추가
 
-    const stadiumOptions = [
-        '광주기아챔피언스필드',
-        '잠실야구장',
-        '고척스카이돔',
-        '대구삼성라이온즈파크',
-        '문학야구장',
-        '마산야구장',
-        '수원kt위즈파크',
-        '청주야구장',
-        '포항야구장',
-        '이글스파크'
-    ];
+    const navigate = useNavigate();
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -38,40 +40,30 @@ function DiaryWrite() {
     };
 
     const handleSubmit = () => {
-        if (!gameName || !gameDate || !seat || !dailyMVP || !review) {
+        if (!gameName || !gameDate || !seat || !dailyMVP || !review || !win) {
             alert('모든 필드를 입력해 주세요!');
             return;
         }
 
         const diaryEntry = {
-            id: Date.now(), // 고유 ID 추가
+            id: Date.now(),
             gameName,
             gameDate,
             stadium,
             seat,
             dailyMVP,
             review,
-            image
+            image,
+            win
         };
 
-        // 데이터를 localStorage에 저장
+        // 데이터를 localStorage에 저장 (또는 서버로 전송)
         const savedDiaries = JSON.parse(localStorage.getItem('diaries')) || [];
         savedDiaries.push(diaryEntry);
         localStorage.setItem('diaries', JSON.stringify(savedDiaries));
 
         alert('일기가 성공적으로 등록되었습니다!');
-
-        // 입력 필드 초기화
-        setGameName('');
-        setGameDate('');
-        setStadium('');
-        setSeat('');
-        setDailyMVP('');
-        setReview('');
-        setImage(null);
-
-        // 일기 리스트 페이지로 이동
-        navigate('/diarylist');
+        navigate('/diarylist'); // 일기 리스트 페이지로 이동
     };
 
     return (
@@ -79,15 +71,15 @@ function DiaryWrite() {
             <Sidebar />
             <div className="mydiary-content">
                 <div className="page-header">
-                    <h2>나의 직관 일기</h2>
-                    <p>선수님이 직관한 경기를 기록할 수 있어요.</p>
+                    <h2>직관 일기 작성</h2>
+                    <p>선수님이 직관한 경기를 기록해 보세요.</p>
                 </div>
                 <div className="diary-form">
                     <div className="form-left">
                         <div className="image-upload">
                             <div className="image-preview">
                                 {image ? (
-                                    <img src={image} alt="직관 이미지" style={{maxWidth: '100%', maxHeight: '100%'}}/>
+                                    <img src={image} alt="직관 이미지"/>
                                 ) : (
                                     <p>직관 경기의 이미지를 등록해 주세요</p>
                                 )}
@@ -153,6 +145,18 @@ function DiaryWrite() {
                                 onChange={(e) => setSeat(e.target.value)}
                                 placeholder="ex) B열 2층 13번"
                             />
+                        </div>
+                        <div className="input-field">
+                            <label>경기 결과</label>
+                            <select
+                                value={win}
+                                onChange={(e) => setWin(e.target.value)}
+                            >
+                                <option value="">결과를 선택해 주세요</option>
+                                <option value="승">승</option>
+                                <option value="무">무</option>
+                                <option value="패">패</option>
+                            </select>
                         </div>
                     </div>
                     <div className="review-field">
