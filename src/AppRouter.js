@@ -7,7 +7,6 @@ import Configure from "./Pages/Configure";
 import SetProfile from "./Pages/SetProfile";
 import MyPage from "./Pages/MyPage";
 import Community from "./Pages/Community";
-import MyDiary from "./Pages/DiaryWrite";
 import MyWinRate from "./Pages/MyWinRate";
 import Gunghab from "./Pages/Gunghab";
 import DiaryList from "./Pages/DiaryList";

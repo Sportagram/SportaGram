@@ -1,3 +1,4 @@
+/*DiaryDetail.js에도 적용됨*/
 .mydiary-container {
     display: flex;
     height: 100vh;
@@ -9,7 +10,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5vw;
+    padding: 1rem; /* 패딩을 상대적인 rem 단위로 줄여서 화면 벗어남 방지 */
+    margin-top: 0.5rem; /* 마진을 줄여서 더 작은 값을 사용 */
+    height: 100%; /* 부모 컨테이너의 높이와 동일하게 맞춤 */
+    box-sizing: border-box; /* 패딩과 마진이 포함된 전체 높이 계산 */
+    overflow: auto; /* 자식 요소가 많을 경우 내부 스크롤로 조정 가능하도록 설정 */
+    position: relative;
 }
 
 .page-header {
