@@ -23,7 +23,7 @@
 
 .player-cards-container {
     display: flex;
-    justify-content: flex-start; /* 왼쪽 정렬 */
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     gap: 1.5vw;
@@ -33,7 +33,7 @@
 .table-container {
     width: 90%;
     max-width: 85vw;
-    height: 550px; /* 화면에 맞추기 위해 줄인 높이 */
+    height: 550px;
     background-color: #ffffff;
     padding: 1.5vw;
     border-radius: 12px;
