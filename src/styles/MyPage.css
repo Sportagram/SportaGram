@@ -2,7 +2,6 @@
     display: flex;
     height: 100vh;
     background-color: #f5f5f5;
-    transition: background-color 0.3s;
 }
 
 .mypage-container.dark-mode {
@@ -25,15 +24,14 @@
 
 .page-header {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1vw;
+    right: 1vw;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 1vw;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: left;
-    margin: 20px;
-    width: 300px;
+    width: 18vw;
 }
 
 .page-header h2 {
