@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Dashboard from '../components/Dashboard';
@@ -8,9 +8,22 @@ import UserProfile from '../components/UserProfile';
 import PlayerCard from '../components/PlayerCard';
 import '../styles/MainPage.css';
 import '../styles/PlayerCard.css';
+import {rows as playerData} from "../Table/Gunghab_table";
 
 // 로그인 시 사용자의 메인 페이지
 function MainPage() {
+
+    const [bestPlayer, setBestPlayer] = useState(null);
+    const [worstPlayer, setWorstPlayer] = useState(null);
+
+    useEffect(() => {
+        if (playerData.length > 0) {
+            const best = playerData.reduce((prev, current) => (prev.winRate > current.winRate) ? prev : current);
+            const worst = playerData.reduce((prev, current) => (prev.winRate < current.winRate) ? prev : current);
+            setBestPlayer(best);
+            setWorstPlayer(worst);
+        }
+    }, []);
     return (
         <div className="app-container">
             <Sidebar />
@@ -22,8 +35,22 @@ function MainPage() {
                             <Dashboard />
                         </div>
                         <div className="player-card-container">
-                            <PlayerCard name="하트" winRate={75} />
-                            <PlayerCard name="송명기" winRate={25} />
+                            {bestPlayer && (
+                                <PlayerCard
+                                    name={bestPlayer.playerName}
+                                    winRate={bestPlayer.winRate}
+                                    imageUrl={bestPlayer.imageUrl}
+                                    isBest={true}
+                                />
+                            )}
+                            {worstPlayer && (
+                                <PlayerCard
+                                    name={worstPlayer.playerName}
+                                    winRate={worstPlayer.winRate}
+                                    imageUrl={worstPlayer.imageUrl}
+                                    isBest={false}
+                                />
+                            )}
                         </div>
                     </div>
                 </div>

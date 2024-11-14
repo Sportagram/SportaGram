@@ -40,6 +40,13 @@
 .sidebar ul li a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* 활성화된 링크의 스타일 추가 */
+.active-link a {
+    color: black;
+    font-weight: bold; /* 강조 효과를 주기 위해 폰트 굵기 조정 */
 }
 
 .user-section {

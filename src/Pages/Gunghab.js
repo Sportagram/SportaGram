@@ -1,31 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import '../styles/LoginPage.css';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import {auth} from "../firebase";
+import GunghabTable, { rows as playerData } from '../Table/Gunghab_table';
+import PlayerCard from '../components/PlayerCard';
+import '../styles/Gunghab.css';
 
-function gungHab() {
-    const handleGoogleSign = async () => {
-        const provider = new GoogleAuthProvider();
-        await signInWithPopup(auth, provider).then((data) => {
-            console.log(data);
-        }).catch((err) => console.log(err));
-    }
+const Gunghab = () => {
+    const [bestPlayer, setBestPlayer] = useState(null);
+    const [worstPlayer, setWorstPlayer] = useState(null);
+
+    useEffect(() => {
+        if (playerData.length > 0) {
+            const best = playerData.reduce((prev, current) => (prev.winRate > current.winRate) ? prev : current);
+            const worst = playerData.reduce((prev, current) => (prev.winRate < current.winRate) ? prev : current);
+            setBestPlayer(best);
+            setWorstPlayer(worst);
+        }
+    }, []);
 
     return (
-        <GoogleOAuthProvider clientId="minseoung010105@gmail.com">
-            <div className="login-page-container">
-                <Sidebar />
-                <div className="login-content">
-                    <h2>스포타그램에 오신 선수님, 환영해요!</h2>
-                    <div className="google-login-button">
-                        <button onClick={handleGoogleSign}>Login in Google</button>
-                    </div>
+        <div className="gunghab-container">
+            <Sidebar />
+            <div className="gunghab-content">
+                <div className="page-header">
+                    <h2>선수 궁합도</h2>
+                    <p>선수님과 잘 맞는 선수를 확인할 수 있어요.</p>
+                </div>
+                <div className="player-cards-container">
+                    {bestPlayer && (
+                        <PlayerCard
+                            name={bestPlayer.playerName}
+                            winRate={bestPlayer.winRate}
+                            imageUrl={bestPlayer.imageUrl}
+                            isBest={true}
+                        />
+                    )}
+                    {worstPlayer && (
+                        <PlayerCard
+                            name={worstPlayer.playerName}
+                            winRate={worstPlayer.winRate}
+                            imageUrl={worstPlayer.imageUrl}
+                            isBest={false}
+                        />
+                    )}
+                </div>
+                <div className="table-container">
+                    <GunghabTable />
                 </div>
             </div>
-        </GoogleOAuthProvider>
+        </div>
     );
-}
+};
 
-export default gungHab;
+export default Gunghab;
