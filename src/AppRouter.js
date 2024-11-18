@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './Pages/MainPage';
-import LoginPage from "./Login/LoginPage";
+import LoginPage from "./Login/LoginPage_Oauth";
 import FanSelect from "./Pages/FanSelect";
 import Configure from "./Pages/Configure";
 import SetProfile from "./Pages/SetProfile";
