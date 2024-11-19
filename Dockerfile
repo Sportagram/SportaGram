@@ -20,8 +20,8 @@ FROM nginx:stable-alpine
 # Copy the built output to Nginx's default directory
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+# Expose port 8080
+EXPOSE 8080
 
 # Run Nginx
 CMD ["nginx", "-g", "daemon off;"]
