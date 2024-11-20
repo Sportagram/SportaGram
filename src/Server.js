@@ -1,3 +1,4 @@
+//백엔드 연결 전 임의의 회원간 소통을 위한 자체 서버코드
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');

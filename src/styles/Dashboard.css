@@ -1,17 +1,44 @@
 .dashboard {
     padding: 20px;
+    width: 100%;
+    max-width: 400px; /* 차트의 최대 크기를 더 줄여서 PlayerCard와 균형 있게 배치 */
+    box-sizing: border-box;
 }
 
-.chart-container {
-    width: 40%;
-    margin-bottom: 20px;
-}
-
-.player-cards {
+.doughnut-chart-container {
+    width: 100%;
+    max-width: 300px; /* 차트의 최대 크기를 줄여 PlayerCard와 공간 확보 */
+    height: auto;
+    aspect-ratio: 1; /* 정사각형 비율 유지 */
+    margin: 0 auto;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.small-chart {
-    width: 30%;
+@media screen and (max-width: 768px) {
+    .dashboard {
+        max-width: 100%; /* 작은 화면에서는 최대 크기를 줄여서 유연하게 반응하도록 */
+    }
+
+    .doughnut-chart-container {
+        max-width: 200px; /* 작은 화면에서는 차트 크기를 줄임 */
+    }
+}
+
+.chart-and-player-container {
+    display: flex;
+    align-items: center; /* PlayerCard와 차트의 세로 중심을 맞추기 위해 사용 */
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.player-card-container {
+    display: flex;
+    flex-direction: row; /* PlayerCard들을 가로로 정렬 */
+    gap: 10px;
+    align-items: center; /* 세로 중심 맞추기 */
+    justify-content: flex-start;
+    margin-top: -50px; /* 차트와 더 잘 맞추기 위해 위치 조정 */
 }
