@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: sny7942/sportagram-front:latest
+          tags: nacyeon/sportagram-front:latest
