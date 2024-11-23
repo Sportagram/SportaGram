@@ -134,22 +134,25 @@ function TeamSlider({ slideIndex, setSlideIndex, teamData }) {
     return (
         <Container>
             <Arrow direction="prev" onClick={previousSlide}>‹</Arrow>
-            {teamData.map((team) => (
+            {teamData.map((team, index) => (
                 <Slide
                     key={team.id}
-                    className={team.id === slideIndex ? "active" : null}
+                    className={index + 1 === slideIndex ? "active" : null}
                 >
                     <Name>{team.name}</Name>
-                    <Photo src={process.env.PUBLIC_URL + `/teamIcon/${team.image}`} alt={`${team.name} 로고`} />
+                    <Photo
+                        src={process.env.PUBLIC_URL + team.image} // 이미지 경로를 public 폴더에서 가져오기
+                        alt={`${team.name} 로고`}
+                    />
                 </Slide>
             ))}
             <Arrow direction="next" onClick={nextSlide}>›</Arrow>
             <DotContainer>
-                {teamData.map((team) => (
+                {teamData.map((team, index) => (
                     <Dot
                         key={team.id}
-                        className={team.id === slideIndex ? "active" : null}
-                        onClick={() => moveDot(team.id)}
+                        className={index + 1 === slideIndex ? "active" : null}
+                        onClick={() => moveDot(index + 1)}
                     />
                 ))}
             </DotContainer>
