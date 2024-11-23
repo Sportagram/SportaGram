@@ -12,6 +12,7 @@ import Gunghab from "./Pages/Gunghab";
 import DiaryList from "./Pages/DiaryList";
 import DiaryWrite from "./Pages/DiaryWrite";
 import DiaryDetail from "./Pages/DiaryDetail";
+import MockLogin from "./MockLogin";
 
 // 페이지 라우터 컴포넌트
 function AppRouter() {
@@ -30,6 +31,7 @@ function AppRouter() {
                 <Route path="/diarywrite" element={<DiaryWrite />} />
                 <Route path="/rate" element={<MyWinRate />} />
                 <Route path="/compatibility" element={<Gunghab />} />
+                {/*<Route path="/mocklogin" element={<MockLogin />} />*/}
                 {/* 다른 RoutePath를 여기에 추가 */}
             </Routes>
         </Router>

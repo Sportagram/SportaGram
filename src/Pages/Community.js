@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import Sidebar from "../components/Sidebar";
 import '../styles/Community.css';
 
-const socket = io('http://localhost:8080'); // Socket.IO 서버 주소
+const socket = io('http://localhost:8081'); // Socket.IO 서버 주소
 
 const Community = () => {
     const [messages, setMessages] = useState([]); // 채팅 메시지 저장

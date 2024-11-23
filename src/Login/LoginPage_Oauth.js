@@ -4,16 +4,9 @@ import '../styles/LoginPage.css';
 import axios from 'axios';
 
 function LoginPage() {
-    const handleGoogleSign = async () => {
-        try {
-            // 서버 상태 확인을 위해 간단한 API 요청
-            await axios.get('http://localhost:8080/health-check');
-            // 서버가 켜져 있으면 구글 로그인 엔드포인트로 이동
-            window.location.href = 'http://localhost:8080/login';
-        } catch (error) {
-            // 서버가 꺼져 있거나 응답이 없을 경우
-            alert('서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.');
-        }
+    const handleGoogleSign = () => {
+        // 서버 상태 체크 없이 바로 구글 로그인 엔드포인트로 리다이렉션
+        window.location.href = 'http://localhost:8080/login';
     };
 
     const buttonStyle = {

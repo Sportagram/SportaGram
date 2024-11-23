@@ -25,6 +25,7 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(8080, () => {
-    console.log('Listening on *:8080');
+const PORT = 8081;  // 포트 번호 변경
+server.listen(PORT, () => {
+    console.log(`Listening on *:${PORT}`);
 });
