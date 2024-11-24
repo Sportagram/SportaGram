@@ -110,7 +110,6 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import TeamSlider from "../components/TeamSlider";
 import '../styles/FanSelect.css';
-import axios from 'axios';
 
 // 서버 데이터 대신 기본적으로 사용할 팀 데이터 (서버 연결 실패 시 사용)
 const fallbackTeamData = [
@@ -180,29 +179,8 @@ function FanSelect() {
     const [slideIndex, setSlideIndex] = useState(1); // 기본값 1로 설정
     const [teamData, setTeamData] = useState(fallbackTeamData); // 기본 팀 데이터로 초기화
 
-    // 팀 데이터 가져오기
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:8080/api/teams');
-                const formattedData = response.data.map((team) => ({
-                    id: team.teamID,
-                    name: team.teamName,
-                    image: `/teamIcon/${team.engName}.png`,
-                    teamCall: team.engName,
-                }));
-                setTeamData(formattedData);
-            } catch (error) {
-                console.error("서버에 연결할 수 없어 기본 팀 데이터를 사용합니다:", error);
-                setTeamData(fallbackTeamData);
-            }
-        };
-
-        fetchData();
-    }, []);
-
     // 완료 버튼 클릭 이벤트 핸들러
-    const handleComplete = async () => {
+    const handleComplete = () => {
         const currentTeam = teamData[slideIndex - 1]; // slideIndex로 현재 선택된 팀 가져오기
         if (!currentTeam) {
             alert('팀을 선택해 주세요');
@@ -213,27 +191,8 @@ function FanSelect() {
             console.log("teamData:", teamData); // teamData 배열 확인
             console.log("slideIndex:", slideIndex); // 현재 선택된 인덱스 확인
 
-
-            try {
-                const response = await axios.post('http://localhost:8080/api/settings', {
-                    myteam: currentTeam.teamCall,
-                    nickname: currentTeam.name || 'DefaultNickname',
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    withCredentials: true,
-                });
-
-                if (response.status === 200) {
-                    window.location.href = '/setprofile'; // 페이지 이동
-                } else {
-                    alert('팀 설정 중 오류가 발생했습니다.');
-                }
-            } catch (error) {
-                console.error('팀 설정 중 오류가 발생했습니다:', error);
-                alert('팀 설정 중 오류가 발생했습니다.');
-            }
+            // 서버 요청 없이 바로 페이지 이동
+            window.location.href = '/setprofile'; // 페이지 이동
         }
     };
 
@@ -254,6 +213,7 @@ function FanSelect() {
 }
 
 export default FanSelect;
+
 
 
 
