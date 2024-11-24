@@ -1,5 +1,5 @@
 # Stage 1: Build the React app
-FROM node:16 AS build  # Node.js 버전을 16 이상으로 변경
+FROM node:16  # Node.js 버전 16 사용
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ FROM nginx:stable-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built React app files to Nginx's HTML directory
-COPY --from=build /app/build /usr/share/nginx/html
+COPY /app/build /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
